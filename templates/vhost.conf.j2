@@ -1,0 +1,22 @@
+<VirtualHost *:80>
+    DocumentRoot {{ document_root }}
+
+    ServerAdmin me@myserver
+    ServerName {{ site_name }}
+    RewriteEngine On
+    RewriteOptions inherit
+
+    <Directory {{ document_root }}>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Require all granted
+        RewriteEngine on
+        RewriteBase /
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteCond %{REQUEST_URI} !=/favicon.ico
+        RewriteRule ^ index.php [L]
+    </Directory>
+
+    CustomLog /var/log/apache2/{{ site_name }}.log combined
+</VirtualHost>

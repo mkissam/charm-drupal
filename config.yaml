@@ -1,0 +1,18 @@
+# Copyright 2020 Márton Kiss
+# See LICENSE file for licensing details.
+#
+# This is only an example, and you should edit to suit your needs.
+# If you don't need config, you can remove the file entirely.
+options:
+  site-name:
+    default: ""
+    type: string
+    description: "Name of the Drupal website."
+  drupal-url:
+    default: "https://ftp.drupal.org/files/projects/drupal-8.9.10.tar.gz"
+    type: string
+    description: "Download link for the archive of Drupal Core files"
+  settings-directory:
+    default: "sites/default"
+    type: string
+    description: "Relative path of the settings.php directory"
